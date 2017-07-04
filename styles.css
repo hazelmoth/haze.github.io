@@ -1,33 +1,118 @@
 body {
-    background: url(images/background.png) gray;
-    margin: 8px;
+    background: white;
+    margin: 0px;
     padding: 0px
 }
 
-p, h1, h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
 h1 {
-    color: white;
-    font-size: 50px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: white;
+    font-size: 130px;
 }
 
 h2 {
-    color: white;
-    font-size: 30px;
+	color: black;
+	font-size: 60px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
 }
 
-div.frontpage {
+h3 {
+	color: black;
+	font-size: 75px;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 40px;
+	color: black;
+
+}
+
+
+p.subtitle {
+    color: white;
+    font-size: 60px;
+}
+
+
+
+.titlesection {
     text-align:center;
     display: block;
     margin: auto;
-    padding-top: 80px;
-    width: 90%;
+	height: 100vh;
+
+	background: #4c70aa;
 }
 
-img.mainimg {
-    width: 600px;
+.titlesection .centerer {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.titleimage {
+	display:inline-block;
+	vertical-align: middle;
+	width: 66%;
+	min-width: 350px;
+	max-width: 1000px;
+}
+
+section {
+	display:block;
+	margin: 50px;
+}
+
+.gametitle {
+	display:block;
+	background: #f9ff68;
+	margin: 0px;
+	padding: 20px;
+	padding-left: 50px;
+	padding-right:50px;
+
+}
+
+.games {
+	text-align:center;
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+.games div {
+	text-align: left;
+	display:inline-block;
+	padding:20px;
+	padding-left:50px;
+	padding-right:50px;
+	margin-bottom: 50px;
+	height: 500px;
+	min-width: 350px;
+
+
+	background-position:center;
+	background-size:auto;
+}
+
+.games h3, .games p {
+	color:white;
+}
+
+.unfected {
+	background-image: url("images/unfectedtitle.png");
+}
+.morlandia {
+	color:white;
+	background-image: url("images/morlandiatitle.png");
+}
+.morlandia2 {
+	background-image: url("images/morlandia2title.png");
 }
 
 img.galleryimg {
@@ -38,56 +123,17 @@ img.galleryimg {
 }
 
 
-nav {
-    padding-bottom: 8px;
+@media (min-width: 980px) {
+	.games div {
+		width: 90%;
+	}
+}
+@media (min-width: 1600px) {
+	.games div {
+		background-size: cover;
+	}
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    height: 25px;
-    line-height: 25px;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-}
-
-li a.home {
-    font-family: 'Jolly Lodger', cursive;
-    font-size: 25px;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-@media (max-width: 930px) {
-img.galleryimg {
-    width: 80%;
-}
-}
-@media (max-width: 700px) {
-img.mainimg {
-    width: 400px;
-}
-}
-@media (max-width: 520px) {
-img.mainimg {
-    width: 80%;
-}
 }
 
 
