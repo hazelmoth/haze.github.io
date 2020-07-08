@@ -1,38 +1,35 @@
-body {
-    background: white;
-    margin: 0px 0px 150px 0px;
-    padding: 0px;
-}
-.top {
-    display: block;
-    color: white;
-	background-color: #4c70aa;
-    text-align: left;
-    padding: 14px 30px;
-    
 
-    text-decoration: none;
-    font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 25px;
-}
-
-a.home {
-	text-decoration: none;
-	color: white;
+.home {
+	margin: 20px;
+	font-size: 22px;
+	font-family: 'Open Sans Condensed', serif;
+	color: black;
+	font-weight: bold;
 }
 
 div.front {
-	text-align: center;
-}
-
-img.front {
-	display: inline-block;
+	display: block;
+	margin: auto;
 	width: 70%;
-	padding: 30px;
 }
 
-.main {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 30px;
-	margin: 30px;
+img.front{
+	margin-top: 50px;
+	width:100%;
+}
+
+.main p {
+	color: #FFFFFF
+}
+
+.top {
+	padding: 10px;
+}
+
+.playlink {
+	font-family: 'Open Sans Condensed', serif;
+	color: white;
+	font-weight: bold;
+	font-size: 28px;
+	margin-top: 20px;
 }

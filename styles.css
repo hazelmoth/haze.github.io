@@ -16,6 +16,10 @@ hr {
 .lite {
   background-color: #f5ee9e;
 }
+.dark {
+	background-color: #74526C;
+  color: #FFFFFF;
+}
 
 hr.full {
     width: 100vw;
@@ -57,9 +61,7 @@ a {
 	color:#0066cc;
 }
 
-.darkheader {
-	color:#0066cc;
-}
+
 .lightheader {
 	color:white;
 }
@@ -123,6 +125,9 @@ section {
 	padding-right:50px;
 	margin-bottom: 50px;
 	height: 300px;
+}
+
+.img-border {
   border: solid #f5ee9e;
   #border-width: 2px;
 
@@ -142,6 +147,10 @@ section {
 .games h3, .games p {
 	color:white;
 	font-family: 'Open Sans Condensed';
+}
+
+.footer {
+  height: 40px;
 }
 
 .unfected {
