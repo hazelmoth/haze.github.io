@@ -6,27 +6,20 @@ body {
 
 hr {
   margin:0px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-   border: 5px solid #74526C;
+  height: 5px;
+  background-color: #74526C;
+  border-width: 0;
 }
 
-hr.hr-lite-thin {
-  margin:0px;
-  border: 3px solid #f5ee9e;
+.lite {
+  background-color: #f5ee9e;
 }
 
-hr.hr-lite-thicc {
-  margin:0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 8px solid #f5ee9e;
-}
-
-hr.fade {
-    border: 0;
-    height: 5px;
-    background-image: linear-gradient(to right, #f5ee9e00, #f5ee9e, #f5ee9e00);
+hr.full {
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
 }
 
 h2 {
@@ -41,13 +34,20 @@ h3 {
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
-
-
 p {
-    font-family: 'Open Sans', sans-serif;
-	font-size: 28px;
+  font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
 	color: black;
+}
 
+a {
+  text-decoration: none;
+}
+
+.inset {
+  -moz-box-shadow:    inset 0px 5px 15px #00000055;
+  -webkit-box-shadow: inset 0px 5px 15px #00000055;
+  box-shadow:         inset 0px 5px 15px #00000055;
 }
 
 .introline {
@@ -62,69 +62,80 @@ p {
 	color:white;
 }
 
-
 p.subtitle {
     color: white;
-    font-size: 60px;
+    font-size: 20px;
+    margin-top: 0px;
+    font-weight: lighter;
+    text-transform: uppercase;
 }
-
-
 
 .titlesection {
     text-align:center;
     display: block;
     margin: auto;
-	height: 128px;
-	background: #74526C;
+    padding: 0;
+	  background: #74526C;
 }
 
 .centerer {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
+  width: 100%;
 }
 
 .titleimage {
 	display:inline-block;
 	vertical-align: middle;
-	width: 768px;
-	min-width: 350px;
-	max-width: 1000px;
+	width: 90%;
+	max-width: 768px;
 }
 
 section {
 	display:block;
-	margin:100px;
+	padding:100px;
 }
 
-.gametitle {
-	display:block;
-	background: #74526C;
-	margin: 0px;
-	padding: 20px;
-
+.constrain-width {
+  max-width: 1280px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .games {
+  background: #74526C;
 	text-align:center;
 	display:block;
 	margin:0px;
-	padding:0px;
+	padding:20px;
+  overflow-x: hidden;
 }
 
-.games div {
+#content-item {
 	text-align: left;
-	display:inline-block;
 	padding:20px;
 	padding-left:50px;
 	padding-right:50px;
 	margin-bottom: 50px;
 	height: 300px;
 	min-width: 350px;
+  border: solid #f5ee9e;
+  #border-width: 2px;
 
 
 	background-position:center;
-	background-size:auto;
+	background-size:100%;
+
+  -moz-box-shadow:    inset -5px 5px 15px #00000065;
+  -webkit-box-shadow: inset -5px 5px 15px #00000065;
+  box-shadow:         inset -5px 5px 15px #00000065;
+
+  -moz-box-shadow:    -3px 5px 15px #00000095;
+  -webkit-box-shadow: -3px 5px 15px #00000095;
+  box-shadow:         -3px 5px 15px #00000095;
 }
 
 .games h3, .games p {
@@ -140,6 +151,21 @@ section {
 }
 .morlandia2 {
 	background-image: url("images/morlandia2title.png");
+}
+.cfrpg {
+	background-image: url("images/cfrpgtitle.png");
+}
+.brekkinridge {
+	background-image: url("images/brekkinridgetitle.png");
+}
+.unleaded {
+	background-image: url("images/unleaded-title.png");
+}
+.pursuit-of-freedom {
+	background-image: url("images/pursuit-of-freedom-title.png");
+}
+.pirates {
+	background-image: url("images/pirates-title.png");
 }
 
 img.galleryimg {
