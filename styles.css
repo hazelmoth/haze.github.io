@@ -1,35 +1,65 @@
 body {
-    background: white;
+    background: #f5ee9e;
     margin: 0px;
     padding: 0px
 }
 
-h1 {
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
-    font-size: 130px;
+hr {
+  margin:0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+   border: 5px solid #74526C;
+}
+
+hr.hr-lite-thin {
+  margin:0px;
+  border: 3px solid #f5ee9e;
+}
+
+hr.hr-lite-thicc {
+  margin:0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 8px solid #f5ee9e;
+}
+
+hr.fade {
+    border: 0;
+    height: 5px;
+    background-image: linear-gradient(to right, #f5ee9e00, #f5ee9e, #f5ee9e00);
 }
 
 h2 {
-	color: black;
-	font-size: 60px;
+	text-align: center;
+	font-size: 50px;
 	font-family: 'Open Sans', sans-serif;
-	font-weight:300;
+	font-weight:1;
 }
 
 h3 {
-	color: black;
-	font-size: 75px;
+	font-size: 50px;
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 
 
 p {
-    font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 28px;
 	color: black;
 
+}
+
+.introline {
+	font-weight:bold;
+	color:#0066cc;
+}
+
+.darkheader {
+	color:#0066cc;
+}
+.lightheader {
+	color:white;
 }
 
 
@@ -44,12 +74,11 @@ p.subtitle {
     text-align:center;
     display: block;
     margin: auto;
-	height: 100vh;
-
-	background: #4c70aa;
+	height: 128px;
+	background: #74526C;
 }
 
-.titlesection .centerer {
+.centerer {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
@@ -58,23 +87,21 @@ p.subtitle {
 .titleimage {
 	display:inline-block;
 	vertical-align: middle;
-	width: 66%;
+	width: 768px;
 	min-width: 350px;
 	max-width: 1000px;
 }
 
 section {
 	display:block;
-	margin: 50px;
+	margin:100px;
 }
 
 .gametitle {
 	display:block;
-	background: #ffe41e;
+	background: #74526C;
 	margin: 0px;
 	padding: 20px;
-	padding-left: 50px;
-	padding-right:50px;
 
 }
 
@@ -92,7 +119,7 @@ section {
 	padding-left:50px;
 	padding-right:50px;
 	margin-bottom: 50px;
-	height: 500px;
+	height: 300px;
 	min-width: 350px;
 
 
@@ -102,13 +129,13 @@ section {
 
 .games h3, .games p {
 	color:white;
+	font-family: 'Open Sans Condensed';
 }
 
 .unfected {
 	background-image: url("images/unfectedtitle.png");
 }
 .morlandia {
-	color:white;
 	background-image: url("images/morlandiatitle.png");
 }
 .morlandia2 {
@@ -135,6 +162,3 @@ img.galleryimg {
 }
 
 }
-
-
-
