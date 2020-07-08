@@ -132,7 +132,7 @@ section {
   #border-width: 2px;
 
 
-	background-position:center;
+	background-position: center;
 	background-size: cover;
 
   -moz-box-shadow:    inset -5px 5px 15px #00000065;
@@ -142,6 +142,15 @@ section {
   -moz-box-shadow:    -3px 5px 15px #00000095;
   -webkit-box-shadow: -3px 5px 15px #00000095;
   box-shadow:         -3px 5px 15px #00000095;
+}
+
+.zoom-on-hover {
+  background-size: 110%;
+  transition: 0.3s;
+}
+
+.zoom-on-hover:hover {
+  background-size: 100%;
 }
 
 .games h3, .games p {
@@ -165,7 +174,7 @@ section {
 .cfrpg {
 	background-image: url("images/cfrpgtitle.png");
 }
-.brekkinridge {
+.breckinridge {
 	background-image: url("images/brekkinridgetitle.png");
 }
 .unleaded {
@@ -176,6 +185,9 @@ section {
 }
 .pirates {
 	background-image: url("images/pirates-title.png");
+}
+.trees {
+  background-image: url("images/trees-title.png");
 }
 
 img.galleryimg {
@@ -189,6 +201,19 @@ img.galleryimg {
 @viewport {
   width: device-width ;
   zoom: 1.0 ;
+}
+
+/* On narrow screens scale display zoomable backgrounds by height instead of width */
+
+@media (max-width: 650px) {
+  .zoom-on-hover {
+    background-size: auto 110%;
+    transition: 0.3s;
+  }
+
+  .zoom-on-hover:hover {
+    background-size: auto 100%;
+  }
 }
 
 @media (max-width: 600px) {
