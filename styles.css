@@ -123,13 +123,12 @@ section {
 	padding-right:50px;
 	margin-bottom: 50px;
 	height: 300px;
-	min-width: 350px;
   border: solid #f5ee9e;
   #border-width: 2px;
 
 
 	background-position:center;
-	background-size:100%;
+	background-size: cover;
 
   -moz-box-shadow:    inset -5px 5px 15px #00000065;
   -webkit-box-shadow: inset -5px 5px 15px #00000065;
@@ -181,17 +180,28 @@ img.galleryimg {
 @viewport {
   width: device-width ;
   zoom: 1.0 ;
-} 
-
-@media (min-width: 980px) {
-	.games div {
-		width: 90%;
-	}
-}
-@media (min-width: 1600px) {
-	.games div {
-		background-size: cover;
-	}
 }
 
+@media (max-width: 600px) {
+	h3, h2 {
+		font-size: 40px;
+	}
+  .team {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+	h3, h2 {
+		font-size: 35px;
+	}
+  p {
+    font-size: 20px;
+  }
+  #content-item {
+    padding: 20px;
+  }
+  .team {
+    padding: 30px;
+  }
 }
