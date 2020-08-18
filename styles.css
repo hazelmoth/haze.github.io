@@ -1,23 +1,22 @@
 
 
 body {
-    background: #f5ee9e;
     margin: 0px;
     padding: 0px
 }
 
 hr {
   margin:0px;
-  height: 5px;
-  background-color: #74526C;
+  height: 7px;
   border-width: 0;
 }
 
 .lite {
-  background-color: #f5ee9e;
+  background-color: #fffd70;
+  color: black;
 }
 .dark {
-	background-color: #74526C;
+	background-color: #328593;
   color: #FFFFFF;
 }
 
@@ -42,8 +41,7 @@ h3 {
 
 p {
   font-family: 'Open Sans', sans-serif;
-	font-size: 22px;
-	color: black;
+	font-size: 20px;
 }
 
 a {
@@ -57,7 +55,7 @@ a {
 }
 
 .introline {
-	font-weight:bold;
+  font-size: 30px;
 	color:#0066cc;
 }
 
@@ -68,10 +66,11 @@ a {
 
 p.subtitle {
     color: white;
-    font-size: 20px;
+    font-size: 22px;
+    margin: 10px;
     margin-top: 0px;
     font-weight: lighter;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 
 .titlesection {
@@ -79,7 +78,6 @@ p.subtitle {
     display: block;
     margin: auto;
     padding: 0;
-	  background: #74526C;
 }
 
 .centerer {
@@ -110,7 +108,6 @@ section {
 
 
 .games {
-  background: #74526C;
 	text-align:center;
 	display:block;
 	margin:0px;
@@ -128,9 +125,6 @@ section {
 }
 
 .img-border {
-  border: solid #f5ee9e;
-  #border-width: 2px;
-
 
 	background-position: center;
 	background-size: cover;
@@ -229,7 +223,7 @@ img.galleryimg {
 	h3, h2 {
 		font-size: 35px;
 	}
-  p {
+  p, p.subtitle {
     font-size: 20px;
   }
   #content-item {
