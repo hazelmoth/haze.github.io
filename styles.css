@@ -78,6 +78,7 @@ p.subtitle {
     display: block;
     margin: auto;
     padding: 0;
+    padding-bottom: 20px;
 }
 
 .centerer {
