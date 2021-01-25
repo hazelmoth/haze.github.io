@@ -1,7 +1,6 @@
 
 
 body {
-    color: white;
     margin: 0px;
     padding: 0px
 }
@@ -13,11 +12,11 @@ hr {
 }
 
 .lite {
-  background-color: #333333;
-  color: #DDDDDD;
+  background-color: #252525;
+  color: black;
 }
 .dark {
-  background-color: #121212;
+	background-color: #121212;
   color: #FFFFFF;
 }
 
@@ -29,31 +28,25 @@ hr.full {
 }
 
 h1 {
-  margin: 10px;
-  font-size: 80px;
+  text-align: center;
+  font-size: 110px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 0;
+  margin: 0;
   color:#e6d15c;
-  text-transform: lowercase;
-  font-family: 'Open Sans Condensed';
-}
-
-h2 {
-	text-align: center;
-	font-size: 50px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight:1;
-}
-
-h3 {
-	font-size: 50px;
-	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
-	font-size: 20px;
+	font-size: 21px;
+}
+
+.tagline {
+  margin-bottom: 50px;
 }
 
 a {
+
   text-decoration: none;
 }
 
@@ -64,12 +57,8 @@ a {
 }
 
 .introline {
-  margin: 10px;
-  font-size: 50px;
-	color:#e6d15c;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: Open Sans Condensed;
+  font-size: 30px;
+	color:#0066cc;
 }
 
 
@@ -108,11 +97,6 @@ p.subtitle {
 	max-width: 768px;
 }
 
-section {
-	display:block;
-	padding:50px;
-}
-
 .constrain-width {
   max-width: 1280px;
   display: block;
@@ -122,7 +106,6 @@ section {
 
 
 .games {
-  color:white;
 	text-align:center;
 	display:block;
 	margin:0px;
@@ -132,17 +115,13 @@ section {
 
 #content-item {
 	text-align: left;
-	padding:20px;
-	padding-left:50px;
-	padding-right:50px;
 	margin-bottom: 50px;
-	height: 300px;
+  width: 90%;
+  object-fit: cover;
+  max-width: 90%;
 }
 
 .img-border {
-
-	background-position: center;
-	background-size: cover;
 
   -moz-box-shadow:    inset -5px 5px 15px #00000065;
   -webkit-box-shadow: inset -5px 5px 15px #00000065;
@@ -153,54 +132,10 @@ section {
   box-shadow:         -3px 5px 15px #00000095;
 }
 
-.zoom-on-hover {
-  background-size: 110%;
-  transition: 0.3s;
-}
-
-.zoom-on-hover:hover {
-  background-size: 100%;
-}
-
-.games p {
-	color:white;
-	font-family: 'Open Sans';
-}
-.games h3 {
-  color:white;
-}
-
 .footer {
   height: 40px;
 }
 
-.unfected {
-	background-image: url("images/unfectedtitle.png");
-}
-.morlandia {
-	background-image: url("images/morlandiatitle.png");
-}
-.morlandia2 {
-	background-image: url("images/morlandia2title.png");
-}
-.cfrpg {
-	background-image: url("images/cfrpgtitle.png");
-}
-.breckinridge {
-	background-image: url("images/brekkinridgetitle.png");
-}
-.unleaded {
-	background-image: url("images/unleaded-title.png");
-}
-.pursuit-of-freedom {
-	background-image: url("images/pursuit-of-freedom-title.png");
-}
-.pirates {
-	background-image: url("images/pirates-title.png");
-}
-.trees {
-  background-image: url("images/trees-title.png");
-}
 
 img.galleryimg {
     width: 900px;
@@ -213,19 +148,6 @@ img.galleryimg {
 @viewport {
   width: device-width ;
   zoom: 1.0 ;
-}
-
-/* On narrow screens scale display zoomable backgrounds by height instead of width */
-
-@media (max-width: 650px) {
-  .zoom-on-hover {
-    background-size: auto 110%;
-    transition: 0.3s;
-  }
-
-  .zoom-on-hover:hover {
-    background-size: auto 100%;
-  }
 }
 
 @media (max-width: 600px) {
