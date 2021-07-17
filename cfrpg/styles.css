@@ -121,6 +121,13 @@ p.subtitle {
   max-width: 90%;
 }
 
+#cfrpg-title {
+  width: 700px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  image-rendering: crisp-edges;
+}
+
 .img-border {
 
   -moz-box-shadow:    inset -5px 5px 15px #00000065;
@@ -154,6 +161,9 @@ img.galleryimg {
 	h3, h2 {
 		font-size: 40px;
 	}
+  #cfrpg-title {
+    width: 350px;
+  }
   .team {
     padding: 50px;
   }
@@ -163,6 +173,9 @@ img.galleryimg {
 	h3, h2 {
 		font-size: 35px;
 	}
+    #cfrpg-title {
+    width: 300px;
+  }
   p, p.subtitle {
     font-size: 20px;
   }
