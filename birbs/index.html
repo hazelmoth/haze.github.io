@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>birbs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="/images/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Lexend:400|Open+Sans:300,400" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container content">
+
+        <h1>cse 455 bird competition submission</h1>
+        <p class="lead">by linus waddell</p>
+        <hr>
+
+        <h3>Video</h3>
+        <div class="vidbox bg-dark">
+        <div class="ratio ratio-16x9 video mx-auto">
+        <iframe src="https://www.youtube.com/embed/EleEyk6fOv4?rel=0" allowfullscreen></iframe>
+        </div>
+        </div>  
+        <hr>
+
+        <h3>Problem description</h3>
+        <p>This an attempt at the <a href="https://www.kaggle.com/competitions/birds23wi/">Birds Birds Birds</a> Kaggle competition. The goal is to train an image classifier which classifies images of birds by species. </p>
+        <h4>Dataset</h4>
+        <p>Data is provided on the competition site. The training data consists of 38,562 bird images, divided into 555 classes of around 50 to 100 images each. A separate <i>names.txt</i> file provides the list of bird names, ordered by class.</p>
+        <figure class="figure">
+        <img src="screenshot_data.png" class="rounded figure mx-auto">
+        <figcaption class="figure-caption">Some of the birds under class 0, "Tundra Swan".</figcaption>
+        </figure>
+
+        <h3>Previous work</h3>
+        <p>I started with the <a href="https://colab.research.google.com/drive/1kHo8VT-onDxbtS3FM77VImG35h_K_Lav?usp=sharing">Transfer Learning to Birds</a> Torch tutorial. My model uses the ResNet50 network pre-trained on ImageNet.</p>
+        <br>
+        <h3>Approach</h3><hr>
+        <h5>Attempt 1</h5>
+        <p>
+            I began this project with a copy of the notebook from the Torch tutorial. The notebook was set up to transfer learning to Resnet18, using images scaled to 128x128 resolution. This provided an easy starting place; I just had to modify the input and output paths to run on Kaggle rather than Colab.</p>
+        <p>
+            I noticed the first time I attempted to train that the training process was severely CPU bottlenecked; this was ostensibly because the image transformations were running on the CPU every time an image was loaded. The first change I made was to iterate over the entire data loader and store the processed images on disk, which solved the CPU bottleneck and sped up training substantially.
+        </p>
+        <p>
+            My initial submission used this model, otherwise unaltered from the tutorial. The results were unimpressive; final loss was around 1.0, with a public competition score of 0.465.
+        </p>
+        <p>
+            To improve performance I first attempted the easy and obvious solution: train the model longer. I set a schedule for 15 epochs—5 with a learning rate of 0.01, 5 at 0.001, and 5 at 0.0001.
+        </p>
+        <p>
+            This had very little effect. The final loss was still about 1.0, and the competition score was only slightly higher: 0.4655.
+        </p>
+        <br>
+        <h5>Attempt 2</h5>
+        <p>
+            I figured at this point we were approaching the limit of what could be extracted from only 128x128 pixels. I increased the image scale to 256, and added two more epochs at a learning rate of 0.00001.
+        </p>
+        <p>
+            This presented an issue, though: the preprocessed images were now too large to store in memory. I tried to remedy this by storing them on disk and modifying the DataLoader to read them one at a time. This still didn't work, though, because they were also too large for the 20 GB of storage provided by a Kaggle notebook.
+        </p>
+        <p>
+            Ultimately I conceded defeat on this matter and reverted to transforming images in realtime on the CPU. Training would take longer from this point on.
+        </p>
+        <p>
+            The result, however, was substantially improved: loss ultimately down to around 0.9, yielding a score of 0.7415. Still, this wasn't exactly impressive.
+        </p>
+        <br>
+        <h5>Attempt 3</h5>
+        <p>
+            Before resorting to fine-tuning, I wanted to try something more drastic: use a bigger model. A brief bout of research suggested that ResNet50 (it's like ResNet18 but with 50 layers) is much more commonly used. I wasn't sure if the training times would be practical—but we were CPU bottlenecked anyway, so I gave it a shot.
+        </p>
+        <p>
+            I ran into an issue immediately: the notebook was running out of memory. I fixed this by halving the batch size from 128 to 64.
+        </p>
+        <p>
+            It turned out the training didn't take that much longer. And we were actually using the GPU now (or, one of them, at least).
+        </p>
+        <figure class="figure">
+            <img src="performance_res50_2.png" class="rounded figure smolfig mx-auto">
+        </figure>   
+        <p>
+            The results were greatly improved, showing a loss around 0.4. The score was now 0.8205, enough for 9th on the leaderboard. Not terrible.
+        </p>
+        <figure class="figure">
+            <img src="scoreboard_256_res50_nonorm.png" class="rounded figure mx-auto">
+            <figcaption class="figure-caption">Leaderboard after switching to ResNet50.</figcaption>
+        </figure>
+        <br>
+        <h5>Attempt 4</h5>
+        <p>
+        I noticed at this point that in pre-processing we weren't normalizing images. This is a pretty standard thing to do, so I figured it'd yield a bit more accuracy.
+        </p>
+        <figure class="figure">
+            <img src="samples_norm.png" class="rounded figure mx-auto">
+            <figcaption class="figure-caption">Some birds, post-normalization.</figcaption>
+        </figure>
+        <p>
+        Also, looking at the loss over time, it seemed likely to me that we were overfitting.
+        </p>
+        <figure class="figure">
+            <img src="loss_full_256_res50_nonorm.png" class="rounded figure mx-auto">
+            <figcaption class="figure-caption">Loss over time. ResNet50 at 256x256, 12 epochs, no normalization.</figcaption>
+        </figure>
+        <p>
+        I reduced the training schedule to a total of 9 epochs; 3 at 0.01, 3 at 0.001, 2 at 0.0001, and 1 at 0.00001. Hopefully this would allow the model to generalize better.
+        </p>
+        <p>
+            Surprisingly, however, this model actually performed slightly worse; 0.813 vs my previous 0.8205.
+        </p>
+        <p>
+            I theorized that I might actually have been wrong about the model overfitting. That had only been a guess based on the loss. But accuracy is what we actually care about, and there's no direct relationship between the two.
+        </p>
+        <p>
+            I increased the training schedule to 12 epochs. This did actually help, yielding a score of 0.816. But still, this was worse than the version with no normalization.
+        </p>
+        <p>
+            But at this point I was running out of time to submit. So I kept the previous score of 0.8205.
+        </p>
+        <hr>
+        <h3>Results</h3>
+        <p>
+            As of submitting the model is still ninth on the public leaderboard. I think the final score isn't too bad.
+        </p>
+        <p>
+            That said, I'm not entirely sure why my attempts at normalization didn't help the model's performance. I haven't found any resource describing normalization as anything other than helpful—so my best guess is I calculated the parameters incorrectly.
+        </p>
+        <p>
+            That said, the public leaderboard is based on a subset of the actual verification data, and the difference is small. It's possible my predictions based on normalized data are actually better when compared to the entire set of validation data.
+        </p>
+        <br>
+        <h5>Conclusions</h5>
+        <p>I think one of the main issues with my approach was that I didn't do any proper validation; I just took lower loss as a general sign of improvement, and evaluated based on the Kaggle score. I probably could have iterated much more efficiently if I'd used some of the data as a validation set and calculated accuracy for each attempt.</p>
+        <p>
+            There is undoubtedly room for improvement with this model. My choices of epoch count and batch size were largely guesswork, and could probably be greatly optimized. Also, this model uses some basic augmentation, but there are lots of options I haven't explored (rotations? center crops?).
+        </p>
+        <p>
+            At the same time, I'd guess we're not <i>that</i> far off from the best accuracy that could be derived from this dataset. I'm happy with the result.
+        </p>
+    </div>
+</body>
+</html>
